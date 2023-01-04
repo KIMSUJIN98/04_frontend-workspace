@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>세부_검색창만들기 - header_2</title>
+    <style>
+        div,form,input{box-sizing: border-box; border: 1px solid red;}
+        #header_2{width: 600px; height: 150px;} /*이 스타일 안가져간다*/
+        
+        #header_2{position: relative;} /* 특정 요소 중앙 배치하기 (공식 순서 1) 가장 바깥의 요소를 기준으로 잡는다*/
+
+        #search_form{
+            width: 80%;
+            height: 20%;
+            margin: auto; /* (공식 순서 2) magin을 auto로 둔다*/
+            position: absolute; /* (공식 순서 3) 위치 지정을 수동으로 하기 위한 absolute 설정*/
+            top: 0; /* (공식 순서 4) 상하좌우의 값을 모두 0으로 설정한다*/
+            bottom: 0; /*네 개가 다 극단으로 가려고 해서 결국 가운데 배치*/
+            left: 0;
+            right: 0;
+        }
+        #search_form>div{height: 100%; float: left;}
+        #search_text{width: 80%;}
+        #search_btn{width: 20%;}
+
+        /*후손 선택자*/
+        #search_form input{width: 100%; height: 100%;} /* 후손은 공백으로 표시*/
+
+    </style>
+</head>
+<body>
+    <div id="header_2">
+        <form action="" id="search_form">
+            
+            <div id="search_text">
+                <input type="text" name="keyword">
+            </div>
+
+            <div id="search_btn">
+                <input type="submit" value="검색">
+            </div>
+
+        </form>
+
+
+    </div>
+
+</body>
+</html>
