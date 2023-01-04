@@ -7,7 +7,7 @@
     <title>실습_v1</title>
     <style>
         /* 전체 틀 잡기 */
-        div{box-sizing: border-box; border: 1px solid red;}
+        div{box-sizing: border-box; /*border: 1px solid red;*/}
 
         .wrap{
             width: 1000px;
@@ -73,21 +73,22 @@
         }
         
         /* content 스타일 --------------------------------------------- */
-        #content img{ /*padding으로 변경!!!!!!!!!*/
-            margin: auto;
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
+        #content_1 img, #content_3 img{
+            box-sizing: border-box;
+            width: 100%;
+            height: 100%;
+            padding: 5px 0px;
+        }
+        
+        #content_2 img{
+            box-sizing: border-box;
+            width: 100%;
+            height: 85%;
+            padding: 5px;
         }
 
-        /* content_1 */
-        #content_1{position: relative;}
-
-        /* content_2 */
         #content_up, #content_down{width: 100%; height: 50%;}
-        #content_left, #content_right{width: 50%; height: 100%; float: left; position: relative;}
+        #content_left, #content_right{width: 50%; height: 100%; float: left;}
         #content_2 p{text-align: center;}
 
         /* content_3 */
@@ -121,10 +122,10 @@
         }
 
         /* 광고 구현하기 */
-        #content_ad{height: 50%; position: relative;}
+        #content_ad{height: 50%;}
 
         /* mechat 구현하기 */
-        #content_mechat{height: 30%; position: relative;}
+        #content_mechat{height: 30%;}
         
         /* 푸터부분 스타일 --------------------------------------------- */
         #footer{position: relative;}
@@ -150,6 +151,7 @@
                 <li><a href="#">Profile</a></li>
                 <li><a href="#">Board</a></li>
                 <li><a href="#">Contact</a></li>
+            </ul>
         </div>
 
         <div id="content">
@@ -160,24 +162,20 @@
                 <div id="content_up">
                     <div id="content_left">
                         <img src="실습_v1/image/main_img1.jpg" alt="main_img1 입니다.">
-                        <br><br><br><br><br><br><br><br><br><br><br><br><br>
                         <p>나무를 심는 사람들</p>
                     </div>
                     <div id="content_right">
                         <img src="실습_v1/image/main_img2.jpg" alt="main_img2 입니다.">
-                        <br><br><br><br><br><br><br><br><br><br><br><br><br>
                         <p>아이들에게 녹색 미래를..</p>
                     </div>
                 </div>
                 <div id="content_down">
                     <div id="content_left">
                         <img src="실습_v1/image/main_img3.jpg" alt="main_img3 입니다.">
-                        <br><br><br><br><br><br><br><br><br><br><br><br><br>
                         <p>설악산을 살리는 길</p>
                     </div>
                     <div id="content_right">
                         <img src="실습_v1/image/main_img4.jpg" alt="main_img4 입니다.">
-                        <br><br><br><br><br><br><br><br><br><br><br><br><br>
                         <p>사라지는 북극곰들</p>
                     </div>
                 </div>
