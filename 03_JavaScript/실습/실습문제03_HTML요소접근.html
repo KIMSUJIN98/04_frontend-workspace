@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습문제3</title>
+    <style>
+        #board{width: 300px; height: 150px; background-color: rgb(233, 183, 142); border: 1px solid black;}
+    </style>
+</head>
+<body>
+    <h1>HTML 태그에 접근 테스트</h1>
+    <p>단, 구매자는 태그 이름으로 접근, 상품명은 아이디로 접근, 구매가격은 name값으로 접근할 것</p> <br>
+    구매자 : <input type="text" id="name" name="name" placeholder="구매자의 이름을 입력하세요"> <br><br>
+    상품명 : <input type="text" id="product" name="product" placeholder="구매 상품명을 입력하세요"> <br><br>
+    가격 : <input type="text" id="price" name="price" placeholder="구매 가격을 입력하세요"> <br><br>
+
+    <button onclick="printAll();">입력값 출력하기</button> <br><br>
+
+    <div id="board"></div>
+    
+    <script>
+        function printAll() {
+            var board = document.getElementById("board");            
+            var list = document.getElementsByTagName("input");
+            // console.dir(list);
+            board.innerHTML += "구입자 : " + list[0].value+"<br>";
+
+            var product = document.getElementById("product");
+            board.innerHTML += "구입상품 : " + product.value+"<br>";
+
+            var pList = document.getElementsByName("price");
+            board.innerHTML += "구매가격 : " + pList[0].value+"원<br>";
+        }
+    </script>
+</body>
+</html>
