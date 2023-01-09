@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            border: 1px solid black;;
+            width: 400px;
+            height: 200px;
+            background-color: bisque;
+        }
+    </style>
+</head>
+<body>
+    <h1>HTML 태그에 접근 테스트</h1>
+    <p>
+    단, 구매자는 태그 이름으로 접근, 상품명은 아이디로 접근, 구매가격은 name 값으로 접근 할 것
+    </p>
+
+    구매자 : <input type="text" placeholder="구매자의 이름을 입력하세요"> <br><br>
+    상품명 : <input type="text" id="productName" placeholder="구매 상품명을 입력하세요"> <br><br>
+    가격 : <input type="text" name="price" placeholder="구매 가격을 입력하세요"> <br><br>
+
+    <button onclick="printInput();">입력값 출력하기</button>
+    <br><br>
+    <div id="printDiv"></div>
+
+    <script>
+        function printInput(){
+            var divEl = document.getElementById("printDiv");
+            var list = document.getElementsByTagName("input"); // 모든요소 다 담김
+            
+            console.dir(list);
+
+            // // 1. 구매자는 0번 인덱스(태그로써 접근)
+            // divEl.innerHTML += "구입자 : "+list[0].value + "<br>";
+
+            // //2. 상품명 (아이디로 접근)
+            // var productName = document.getElementById("productName");
+            // divEl.innerHTML += "구입상품 : "+productName.value +"<br>";
+
+            // //3. 구매가격 (name으로 접근)
+            // var price = document.getElementsByName("price");
+            // divEl.innerHTML += "구매가격 : " + price[0].value + "원";
+
+        }
+    </script>
+</body>
+</html>
