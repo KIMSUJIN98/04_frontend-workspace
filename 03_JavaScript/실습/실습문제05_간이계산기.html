@@ -18,7 +18,7 @@
     <input type="button" value="%" onclick="calculator(this.value);">
 
     <br><br>
-    계산결과 : <div id="result"></div>
+    계산결과 : <span id="result"></span>
     <hr>
 
     <script>
@@ -42,16 +42,19 @@
                     break;
                 case "x":
                     result = number1 * number2;
+                    break;
                 case "/":
                     result = number1 / number2;
+                    break;
                 case "%":
                     result = number1 % number2;
+                    break;
             }
             
             // console.log(result);
 
-            const divEl = document.getElementById("result");
-            divEl.innerText = result;
+            const spanEl = document.getElementById("result");
+            spanEl.innerText = result;
         }
     </script>
 </body>
