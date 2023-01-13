@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>배열 실습 문제 3</title>
     <style>
-        .area{
+        div{
             border: 1px solid red;
+            width: 900px;
             height: 20px;
         }
     </style>
@@ -20,17 +21,29 @@
 
     <fieldset>
         <legend>입력</legend>
-        <input type="text">
-        <button onclick="input_txt();">입력</button>
+        <input type="text" id="input1">
+        <button onclick="test();">입력</button>
     </fieldset>
     
     <br>
-    <div id="area1" class="area"></div>
+    <div id="answer">이 부분에 정답이 출력 될 수 있도록 하세요</div>
     <br>
-    <button onclick="output_txt();">출력</button>
+    <button onclick="test1();">출력</button>
 
-    <style>
+    <script>
+        let arr = [];
+        let input1 = document.getElementById("input1"); // 이 부분은 함수 내부에 있어도 됨
+        let answer = document.getElementById("answer"); // 이 부분은 함수 내부에 있어도 됨
         
-    </style>
+        function test() {
+            arr.push(input1.value);
+            input1.value = ""; // 입력 버튼을 누르는 순간 입력된 내용을 초기화하기 위함.
+            // console.log(arr);
+        }
+
+        function test1() {
+            answer.innerHTML = arr.toString();
+        }
+    </script>
 </body>
 </html>

@@ -22,92 +22,34 @@
     
     <br>
     
-    <input type="text" id="searchText" size="80%" placeholder="찾을 문자열을 입력하세요">
+    <input type="text" id="findInput" size="80%" placeholder="찾을 문자열을 입력하세요">
     <br>
-    <button onclick="indexOfTest();">전송 및 처리</button>
-    <div id="area"></div>
+    <button onclick="test();">전송 및 처리</button>
 
     <script>
-        function indexOfTest() {
-
-            const area = document.getElementById("area");
-            const arr1 = document.getElementById("la1");
-            const arr2 = document.getElementById("la2");
-            const arr3 = document.getElementById("la3");
-            const arr4 = document.getElementById("la4");
-
-            console.log(arr1);
-
-
-            area.innerHTML = arr1.value.concat(arr2.value,arr3.value);
-            console.log(area);
-
-
-
+        function test() {
+            let str ="";
+            for(let i=1; i<=4; i++){
+                str += document.getElementById("la" + i).innerHTML;
+                str += ",";
             }
+            // console.log(str);
 
+            const foods = str.split(",");
+            
+            foods.pop();
+            // console.log(foods);
 
-            /*
-            const fruit = prompt("찾고자 하는 과일명 입력");
+            const findInput = document.getElementById("findInput"); // value 속성 가져와야함
+            let index = foods.indexOf(findInput.value); // 요소 있으면 index값 뱉고, 없으면 -1 뱉음.
 
-            const index = arr.indexOf(fruit); // 해당 요소를 찾지 못하면 -1 반환
-
-            console.log(index);
-
-            // 당신이 찾는 과일 xxx은(는) x번째 인덱스에 있습니다.
-            // 당신이 찾는 과일 xxx은(는) 판매하지 않습니다.
-
-            area2.innerHTML = "당신이 찾는 과일 " + fruit + "은(는)";
             if(index == -1){
-                area2.innerHTML += "판매하지 않습니다.";
+                alert("존재하지 않습니다."); // 없다
             }else {
-                area2.innerHTML += index + "번째 인덱스에 있습니다.";
+                // 치즈는 배열 index 4번째에 존재합니다.
+                alert(findInput.value + "는 배열 index" + index + "번째에 존재합니다.");
             }
-
-            // 자바스크립트에서 두 값이 동일한지 비교하는 연산자
-            console.log(1 == 1); // true
-            console.log(1 == "1"); // true => 동등연산자 (자료형과 무관하게 실제값만 일치해도 true)
-            console.log(1 === "1"); // false => 일치연산자 (값, 자료형 둘다 일치해야 true)
-
-
-
-
-
-
-
-
-
-            const area = document.getElementById("area");
-            const st = document.getElementById("searchText");
-            
-            const arr1 = document.getElementById("la1");
-            const arr2 = document.getElementById("la2");
-            const arr3 = document.getElementById("la3");
-            const arr4 = document.getElementById("la4");
-
-            const str1 = arr1.concat(arr2,arr3);
-            const str = str1.concat(arr4)
-            console.log(str);
-
-            area.innerHTML += str.indexOf(st.value);
-            console.log(str.indexOf(st.value));
-
-/*
-            const index = 0;
-            for(let i=0; i<arr.length; i++){
-                if(arr[i] == st.value){
-                    index = i;
-                }
-            }
-
-            const message = "";
-            if(index == 0){
-                message = arr[index] + "는 존재하지 않습니다.";
-            }else{
-                message = arr[index] + "는 배열 index " + index + "번에 존재합니다.";
-            }
-            
-            alert(message);*/
+        }
     </script>
 </body>
 </html>
