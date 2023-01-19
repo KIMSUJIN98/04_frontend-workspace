@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>jQuery 개요</title>
-    <!-- <script src="resources/js/jquery-3.6.3.min.js"></script> -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="resources/js/jquery-3.6.3.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script> -->
 </head>
 <body>
     <h1>jQuery 개요</h1>
@@ -115,16 +115,17 @@
             // h3 요소들 선택해서 배경색 노란색으로 변경
             // > 순수 자바스크립트 방식
 
-            /*
+            
             const h3Arr = document.getElementsByTagName("h3"); // [h3요소객체, h3요소객체, h3요소객체...]
             // h3Arr.style.backgroundColor = "yellow"; 불가능
-            for(let i in h3Arr){
+            for(let i=0; i<h3Arr.length; i++){ // jQuery는 for in문 사용시 i값에 length 등 이상한 값이 들어가 이후 출력이 정상적이지 않을 수 있다 => 일반 for문 사용.
+                console.log(i);
                 h3Arr[i].style.backgroundColor = "yellow";
             }
-            */
+            
 
             // > jQuery 방식
-            $("h3").css("backgroundColor", "yellow");
+            $("h3").css("backgroundColor", "yellowgreen");
             // $("선택자") : 해당 요소 선택
             // .css() : 선택된 요소들의 스타일과 관련된 기능 수행
 
@@ -134,5 +135,6 @@
     </script>
 
     <div id="test">안녕하세요</div>
+
 </body>
 </html>
