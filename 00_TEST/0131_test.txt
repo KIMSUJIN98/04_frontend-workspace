@@ -1,26 +1,91 @@
-1. jQuery 연동 방법 => 폴더를 복잡하게 구성해서 나오지 않을까... 	<script src = "../~"></script>
+1. jQuery 연동 방법 => 폴더를 복잡하게 구성해서 나오지 않을까... 
+<script src = "../~"></script>
 
-2. input type 속성 										text password email 등등
 
-3. div 태그, span 태그의 차이점 								(인라인요소냐 블록요소냐 : contents 부분만 영역 차지 등)
+2. input type 속성
+-- text, passwoed, email 등등
+
+
+3. div 태그, span 태그의 차이점 (인라인요소냐 블록요소냐 : contents 부분만 영역 차지 등)
+-- 블럭요소 : 한 줄로 영역을 차지하고 있는 요소 / 줄바꿈 발생 (div, p, pre, h)
+-- 인라인요소 : content 부분만 영역을 차지하고 있는 요소 / 옆으로 배치(span, label, input, img, 글자관련)
+
 
 4. infinity, NaN, eval(인자) 이런것들..? 윈도우 전역객체 속성
+-- infinity : 양/ 음의 무한대를 나타내는 숫자값, 자바스크립트에서 어떤 수를 0으로 나누었을 때 나오는 값 (자바에서는 에러발생)
+-- NaN : 숫자가 아닌 타입을 강제형변환 하려는 경우에 반환되는 속성 (Not a Number)
+-- eval(인자) : 인자로 전달받은 문자열을 자바스크립트 코드로 변환하여 실행하는 전역함수
 
-5. typeof() 이게 뭐냐? 									어떠한 값의 타입을 알 수 있는 함수가 뭐냐? typeof()/ typeof(123) => Number
 
-6. document 메소드들.. getElementId, getElementsClassName, ..
+5. typeof() 이게 뭐냐? 어떠한 값의 타입을 알 수 있는 함수가 뭐냐? typeof()/ typeof(123) => Number
+-- 자료형 확인시 사용하는 함수 : typeof(변수명)
+
+
+6. document 메소드들..
+-- document.getElementById("아이디명"); => 선택된 요소 객체 반환
+-- document.getElementsByTagName("태그명") => 선택된 요소객체들이 배열에 담겨서 반환
+-- document.getElementsByName("name 속성값") =>  선택된 요소들이 배열에 담겨서 반환
+-- document.getElementsByClassName("class 속성값") => 선택된 요소들 배열에 담겨서 반환
+
+// 선택자를 활용하여 자유롭게 가져오기
+-- document.querySelector("선택자"); => 선택된 요소객체 하나만 반환
+-- document.querySelectorAll("선택자"); => 선택된 요소객체들을 배열에 담아서 반환
+
 ** 클래스 속성이 abc를 갖는 값을 변수 abc에 할당해라?
 const(|let|var) abc = document.getElementsClassName("abc");
 
-7. window.onload(); 이게뭔지 어떤특징이 있는지?				모든 구문이 랜더링된 이후에 자스내에서 한번만 사용가능, 반면 ${function}은 여러번 사용가능하다.
 
-8. 자바스크립트를 작성하는 방법 3가지 - 내부 외부 인라인방식			이게 뭔지? 어떻게 다른지? 맨날 쓰는방식, sample.js, ..
+7. window.onload(); 이게뭔지 어떤특징이 있는지?
+-- 자바스크립트에서 window.onload 구문은 해당 문서의 모든 요소들이 랜더링되고 + 외부 css 파일도 다 가지고 온 뒤에 실행됨.
+   해당 문서에서 단 한번만 작성가능 (여러개 있으면 마지막만 반영됨) => window.onload = function(){실행내용};
+-- 제이쿼리에서 해당 문서의 요소들만 다 랜더링되면 곧바로 실행됨. 여러번 사용가능함. (순서대로 실행) => $(function(){실행내용});
+
+
+8. 자바스크립트를 작성하는 방법 3가지! 이게 뭔지? 어떻게 다른지?
+-- inline (인라인) : 태그 내에 간단 소스코드를 작성해서 실행되게 하는 방법
+-- internal (내부) : html 문서 내에 소스코드를 작성해서 실행되게 하는 방법
+-- external (외부) : 별도의 .js 파일로 소스코드를 작성해서 가져다가 실행되게 하는 방법
+
 
 9. 자바스크립트에서 배열 선언하는 방법 - 2가지
-let arr = []; , let arr = new Array();					let arr = new Array(2); [크기지정]할수도 있고 안할수도 있고
+-- let arr = []; 
+-- let arr = new Array(); // 크기지정 생략가능 new Array(2)
+
 
 10. block scope, function scope 이게 뭐냐.. => {} 뭐가 다르냐..
+-- block scope == 변수가 선언된 "블럭{}" 내에서만 사용 가능 (자바와 유사)
+-- function[al] scope == 변수가 선언된 함수 영역 내에서 사용 가능
 
-11. undefined 가 언제뜨는지? 왜 뜨냐? => 값을 할당받지 못한 상태일 때
 
-12. 원시타입, 참조타입 차이점, 종류								차이점: 복사본이 변경이 되냐마냐 /(참조 종류)객체, 배열, 함수 (원시 종류) 숫자,문자,논리형, null, undefined
+11. undefined 가 언제뜨는지?
+-- 초기화가 되지 않은 변수, 즉 값을 할당받지 못한 상태일 때 발생함
+
+
+12. 원시타입, 참조타입 차이점, 종류
+-- 원시타입 : 원본이 바뀌어도 복사본은 변경안됨 (리터럴값) / 숫자,문자,논리형, null, undefined
+-- 참조타입 : 원본이 바뀌면 복사본도 바뀜 (주소값) / 함수, 배열, 객체
+
+
+** var는 중복 선언 가능(단점), 재할당 가능
+** let은 중복 선언 불가능, 재할당 가능
+** const는 중복 선언 불가능, 재할당 불가능 (상수같은 개념 == 한번 초기화된 값 변경 불가)
+** 자바스크립트는 웹 브라우저에서 많이 사용되는 "인터프리터 방식(코드를 한줄씩 읽어가며 바로 실행)"의 스크립트 언어
+** window : 자바스크립트 내장 객체로 브라우저 창이 열릴 때 마다 하나씩 만들어지는 객체 / 브라우저 창 안에 존재하는 모든 요소들의 최상위 객체 (생략가능)
+** document : 웹 문서마다 하나씩 만들어지는 객체 (html문서에 대한 정보들을 가지고 있음)
+** prompt("질문내용"); : 질문내용과 입력가능한 텍스트상자와 확인/취소 버튼이 보여지는 알람창
+
+* 취미 : 
+<input type="text" list="hobby_li" name="hobby" id="hobby" placeholder="축구, 농구, 야구, 독서, 등"><br><br>
+<datalist id="hobby_li">
+    <option value="soccer">축구</option>
+    <option value="basketball">농구</option>
+    <option value="baseball">야구</option>
+    <option value="reading">독서</option>
+</datalist>
+
+* 거주지 : 
+<select name="address" id="address">
+    <option value="Seoul" selected>서울</option>
+    <option value="Incheon">인천</option>
+    <option value="Busan">부산</option>
+</select>
