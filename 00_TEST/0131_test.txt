@@ -1,0 +1,26 @@
+1. jQuery 연동 방법 => 폴더를 복잡하게 구성해서 나오지 않을까... 	<script src = "../~"></script>
+
+2. input type 속성 										text password email 등등
+
+3. div 태그, span 태그의 차이점 								(인라인요소냐 블록요소냐 : contents 부분만 영역 차지 등)
+
+4. infinity, NaN, eval(인자) 이런것들..? 윈도우 전역객체 속성
+
+5. typeof() 이게 뭐냐? 									어떠한 값의 타입을 알 수 있는 함수가 뭐냐? typeof()/ typeof(123) => Number
+
+6. document 메소드들.. getElementId, getElementsClassName, ..
+** 클래스 속성이 abc를 갖는 값을 변수 abc에 할당해라?
+const(|let|var) abc = document.getElementsClassName("abc");
+
+7. window.onload(); 이게뭔지 어떤특징이 있는지?				모든 구문이 랜더링된 이후에 자스내에서 한번만 사용가능, 반면 ${function}은 여러번 사용가능하다.
+
+8. 자바스크립트를 작성하는 방법 3가지 - 내부 외부 인라인방식			이게 뭔지? 어떻게 다른지? 맨날 쓰는방식, sample.js, ..
+
+9. 자바스크립트에서 배열 선언하는 방법 - 2가지
+let arr = []; , let arr = new Array();					let arr = new Array(2); [크기지정]할수도 있고 안할수도 있고
+
+10. block scope, function scope 이게 뭐냐.. => {} 뭐가 다르냐..
+
+11. undefined 가 언제뜨는지? 왜 뜨냐? => 값을 할당받지 못한 상태일 때
+
+12. 원시타입, 참조타입 차이점, 종류								차이점: 복사본이 변경이 되냐마냐 /(참조 종류)객체, 배열, 함수 (원시 종류) 숫자,문자,논리형, null, undefined
