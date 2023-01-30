@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>포트폴리오 문제</title>
+    <style>
+        .wrap{
+            width: 500px;
+            height: 200px;
+            padding: 5% 8%;
+            margin: auto;
+        }
+        .td_style{float: right;}
+    </style>
+</head>
+<body>
+     <div class="wrap">
+        <h1>포트폴리오 문제</h1>
+
+        <form action="insert.no" method="post">
+            <fieldset>
+                <legend>회원 가입 양식</legend>
+
+                <table>
+                    <tr>
+                        <td>아이디</td>
+                        <td><input type="text" id="userId" name="userId" size="20px" required></td>
+                        <td><button onclick="test1();">중복확인</button></td>
+                    </tr>
+                    <tr>
+                        <td>비밀번호</td>
+                        <td><input type="password" id="userPwd1" name="userPwd1" size="20px" required></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>비밀번호확인</td>
+                        <td><input type="password" id="userPwd2" name="userPwd2" size="20px" required></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>지역</td>
+                        <td>
+                            <label for="radio1">서울</label><input type="radio" id="radio1" name="region" value="Seoul">
+                            <label for="radio2">부산</label><input type="radio" id="radio2" name="region" value="Busan">
+                            <label for="radio3">대구</label><input type="radio" id="radio3" name="region" value="Daegu">
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td class="td_style">
+                            <input type="reset" value="초기화" onclick="test2();">
+                            <input type="submit" value="회원가입" onclick="return validate();">
+                        </td>
+                        <td></td>
+                    </tr>
+                </table>
+            </fieldset>
+        </form>
+     </div>
+
+     <script>
+        const userId = document.getElementById("userId");
+        const userPwd1 = document.getElementById("userPwd1");
+        const userPwd2 = document.getElementById("userPwd2");
+        const regions = document.getElementsByName("region");
+        let regExp = /^[a-z][a-z\d!@#]{5,11}$/;
+
+        function test1(){
+            if(regExp.test(userId.value)){
+                userId.style.backgroundColor = "green";
+            }else {
+                userId.style.backgroundColor = "red";
+            }
+        }
+
+        function validate(){
+            // 아이디가 조건에 맞는지 확인하기
+            if(regExp.test(userId.value)){
+                userId.style.backgroundColor = "green";
+            }else {
+                userId.style.backgroundColor = "red";
+                return false;
+            }
+            
+            // 비밀번호 일치여부 판별 : 문제에 주어지지 않아 단순히 콘솔로 확인
+            if(userPwd1.value != userPwd2.value){
+                console.log("비밀번호가 일치하지 않습니다.");
+                return false;
+            }
+
+            // 지역 버튼 체크여부 판별하기
+            let regionChoice = "";
+
+            for(let i=0; i<regions.length; i++) {
+                if(regions[i].checked) {
+                    regionChoice = regions[i].value;
+                }
+            }
+
+            if(regionChoice == ""){
+                alert("지역을 선택해주세요");
+                return false;
+            }
+        }
+
+        function test2(){
+            /*
+            userId.value="";
+            userPwd1.value="";
+            userPwd2.value="";
+            
+            for(let i=0; i<regions.length; i++) {
+                if(regions[i].checked) {
+                    regions[i].checked = false;
+                }
+            }
+            */
+            userId.style.backgroundColor = "";
+        }
+    </script>
+</body>
+</html>
